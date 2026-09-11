@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1440, initial-scale=1.0">
     <title>Sriram & Vasanthi - Our Memories</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Pinyon+Script&display=swap" rel="stylesheet">
     <style>
@@ -23,7 +23,9 @@
         }
 
         body {
-            /* Integrated original background image with atmospheric darkening gradient overlay */
+            /* Forced desktop canvas dimensions & background fixed matching original design */
+            width: 1440px;
+            height: 900px;
             background-image: radial-gradient(circle at center, rgba(30, 20, 15, 0.45) 0%, rgba(10, 7, 5, 0.95) 100%),
                               url('file_00000000040481f59855199e8cb9d843.png');
             background-size: cover;
@@ -31,7 +33,7 @@
             background-repeat: no-repeat;
             color: var(--text-main);
             font-family: 'Cormorant Garamond', serif;
-            height: 100vh;
+            position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -43,7 +45,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 25px 50px;
+            padding: 30px 70px;
             z-index: 10;
         }
 
@@ -57,7 +59,7 @@
 
         nav {
             display: flex;
-            gap: 40px;
+            gap: 45px;
             font-size: 0.85rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
@@ -81,16 +83,17 @@
 
         /* Main Section Layout */
         .main-container {
-            display: grid;
-            grid-template-columns: 260px 1fr 260px;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            padding: 0 40px;
+            padding: 0 60px;
             position: relative;
             flex-grow: 1;
         }
 
         /* Left Sidebar Info */
         .left-sidebar {
+            width: 260px;
             padding-left: 10px;
         }
 
@@ -132,20 +135,20 @@
         }
 
         .note-top-right {
-            top: 10px;
-            right: 40px;
+            top: 20px;
+            right: 70px;
             transform: rotate(3deg);
         }
 
         .note-bottom-left {
             bottom: 30px;
-            left: 30px;
+            left: 60px;
             transform: rotate(-4deg);
         }
 
         .note-bottom-right {
             bottom: 30px;
-            right: 30px;
+            right: 60px;
             transform: rotate(2deg);
         }
 
@@ -156,6 +159,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            flex-grow: 1;
         }
 
         .book {
@@ -201,7 +205,7 @@
             border-radius: 0 4px 4px 0;
         }
 
-        /* Realistic Turning Sheet Layer with Smooth Arc */
+        /* Realistic Turning Sheet Layer */
         .turning-sheet {
             position: absolute;
             top: 0;
@@ -283,7 +287,6 @@
             color: #333;
         }
 
-        /* Washi Tape Accent */
         .tape {
             position: absolute;
             top: -9px;
@@ -297,7 +300,6 @@
             z-index: 10;
         }
 
-        /* Right Page Typography & Decorations */
         .story-text {
             font-family: 'Pinyon Script', cursive;
             font-size: 2.3rem;
@@ -337,6 +339,7 @@
             transition: all 0.3s ease;
             font-size: 1.1rem;
             z-index: 200;
+            flex-shrink: 0;
         }
 
         .nav-arrow:hover {
@@ -344,6 +347,9 @@
             color: var(--accent-pink);
             background: rgba(242, 162, 179, 0.05);
         }
+
+        #prevBtn { margin-right: 30px; }
+        #nextBtn { margin-left: 30px; }
 
         /* Bottom Pagination & Exactly Centered Filmstrip */
         footer {
@@ -386,7 +392,6 @@
             text-transform: uppercase;
         }
 
-        /* Centered Filmstrip Gallery */
         .filmstrip-wrapper {
             display: flex;
             justify-content: center;
@@ -522,10 +527,8 @@
                 </div>
             </div>
 
-            <button class="nav-arrow" id="nextBtn" style="margin-left: 20px;">&#8594;</button>
+            <button class="nav-arrow" id="nextBtn">&#8594;</button>
         </div>
-
-        <div></div> <!-- Grid Spacer -->
     </div>
 
     <!-- Footer Gallery & Pagination -->
@@ -575,7 +578,6 @@
         const progressBar = document.getElementById('progressBar');
         const filmstripContainer = document.getElementById('filmstrip');
 
-        // Build Filmstrip Thumbnails
         memoriesData.forEach((item, index) => {
             const thumb = document.createElement('div');
             thumb.className = `thumb ${index === 0 ? 'active' : ''}`;
