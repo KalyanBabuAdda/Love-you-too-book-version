@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#f8f3f6" />
+<title>Our Memories — Sriram & Vasanthi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Italiana&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="scroll-track" id="scrollTrack" aria-hidden="true"></div>
+<main class="stage" id="stage">
+  <div class="scene-bg"></div>
+  <div class="scene-shade"></div>
+  <div class="grain"></div>
+  <div class="bokeh b1"></div><div class="bokeh b2"></div><div class="bokeh b3"></div>
+  <div class="petals" id="petals"></div>
+
+  <header class="scene-copy">
+    <div class="names">SRIRAM<br><span>&</span><br>VASANTHI</div>
+    <div class="memory-label"><small>OUR</small><strong>MEMORIES</strong><i></i><p>A few pages<br>from our story</p></div>
+    <div class="note note-right">Different<br>Places<br>Same Love ♡</div>
+    <div class="note note-left">Good Things<br>Take Time ♡</div>
+  </header>
+
+  <section class="book-area" id="bookArea">
+    <div class="desk-shadow"></div>
+    <div class="book" id="book">
+      <div class="back-cover"></div>
+      <div class="page-stack stack-left"></div>
+      <div class="page-stack stack-right"></div>
+
+      <div class="spread spread-base">
+        <div class="page left-page"><div class="paper-noise"></div><div class="gutter left-gutter"></div><div class="page-content" id="leftContent"></div></div>
+        <div class="page right-page"><div class="paper-noise"></div><div class="gutter right-gutter"></div><div class="page-content" id="rightContent"></div></div>
+      </div>
+
+      <div class="turning-sheet" id="turningSheet">
+        <div class="sheet-face sheet-front"><div class="paper-noise"></div><div class="sheet-content" id="sheetFront"></div></div>
+        <div class="sheet-face sheet-back"><div class="paper-noise"></div><div class="sheet-content" id="sheetBack"></div></div>
+      </div>
+
+      <div class="front-cover" id="frontCover">
+        <div class="cover-inner-shadow"></div>
+        <div class="cover-frame"></div>
+        <div class="cover-title">
+          <small>SRIRAM & VASANTHI</small>
+          <strong>MEMORIES</strong>
+          <i></i>
+          <em>our little story</em>
+          <small>16 · 11 · 2023</small>
+        </div>
+        <div class="cover-flower">♡</div>
+      </div>
+    </div>
+
+    <button class="nav-btn prev" id="prevBtn" aria-label="Previous page">←</button>
+    <button class="nav-btn next" id="nextBtn" aria-label="Next page">→</button>
+
+    <div class="progress-ui" id="progressUi">
+      <div class="counter"><span id="pageNow">01</span> / 10</div>
+      <div class="bar"><b id="barFill"></b></div>
+      <div class="hint">SCROLL TO TURN THE PAGE</div>
+    </div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
