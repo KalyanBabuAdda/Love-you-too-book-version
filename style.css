@@ -1,0 +1,72 @@
+:root{
+  --bg:#0b0807;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);overflow-x:hidden}
+html{scroll-behavior:auto}
+body{font-family:Georgia,"Times New Roman",serif;color:#fff;-webkit-font-smoothing:antialiased}
+.scroll-space{height:430svh;position:relative;background:#080606}
+.stage{
+  position:sticky;top:0;height:100svh;width:100%;overflow:hidden;
+  display:grid;place-items:center;background:#080606;
+  perspective:1900px;perspective-origin:50% 47%;
+}
+.camera{
+  position:relative;width:100%;height:100%;display:grid;place-items:center;
+  transform-style:preserve-3d;will-change:transform;
+}
+.scene{
+  position:relative;aspect-ratio:3/2;
+  width:min(100vw,150svh);max-width:none;
+  transform-style:preserve-3d;transform-origin:50% 50%;will-change:transform,filter;
+  filter:brightness(.98) saturate(.98) contrast(1.015);
+  box-shadow:0 30px 100px rgba(0,0,0,.38);
+  isolation:isolate;
+}
+.scene-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;user-select:none;-webkit-user-drag:none;backface-visibility:hidden}
+.page-light{
+  position:absolute;z-index:4;pointer-events:none;
+  left:43.7%;top:4%;width:16%;height:70%;
+  opacity:0;transform-origin:7% 58%;
+  transform:rotateY(-2deg) skewY(-1deg);
+  border-radius:48% 44% 14% 8% / 10% 8% 10% 10%;
+  background:
+    linear-gradient(92deg,rgba(255,250,232,0) 0%,rgba(255,245,216,.26) 31%,rgba(255,255,248,.42) 51%,rgba(79,45,27,.20) 79%,rgba(0,0,0,0) 100%);
+  mix-blend-mode:screen;filter:blur(1px);will-change:transform,opacity;
+}
+.glass-light{
+  position:absolute;inset:-7%;z-index:5;pointer-events:none;opacity:.05;
+  background:linear-gradient(118deg,transparent 22%,rgba(255,224,192,.28) 42%,transparent 58%);
+  transform:translateX(-35%);mix-blend-mode:screen;will-change:transform,opacity;
+}
+.vignette{position:absolute;inset:0;pointer-events:none;z-index:20;background:radial-gradient(ellipse at center,transparent 48%,rgba(0,0,0,.08) 72%,rgba(0,0,0,.42) 110%)}
+.grain{position:absolute;inset:-40%;z-index:21;pointer-events:none;opacity:.055;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");animation:grain .24s steps(2) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-2%,1%)}50%{transform:translate(1%,-2%)}75%{transform:translate(2%,2%)}100%{transform:translate(-1%,-1%)}}
+.ambient{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.glow{position:absolute;border-radius:50%;filter:blur(80px);opacity:.22;will-change:transform}
+.glow-a{width:30vw;height:30vw;left:8%;top:12%;background:rgba(171,83,50,.36)}
+.glow-b{width:25vw;height:25vw;right:4%;bottom:5%;background:rgba(255,165,105,.20)}
+.petal{position:absolute;width:9px;height:14px;border-radius:70% 20% 70% 20%;background:rgba(196,103,98,.45);filter:blur(.2px);opacity:.35;will-change:transform}
+.p1{left:12%;top:18%}.p2{left:25%;top:70%}.p3{left:63%;top:15%}.p4{right:12%;top:58%}.p5{right:28%;top:80%}.p6{left:51%;top:47%}
+.scroll-cue{position:absolute;left:50%;bottom:16px;z-index:30;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:rgba(255,238,224,.62);font:10px/1 Arial,sans-serif;letter-spacing:.32em;transition:opacity .4s ease}
+.scroll-cue i{display:block;width:1px;height:28px;background:linear-gradient(to bottom,rgba(255,226,214,.6),transparent);animation:cue 1.7s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(.5);transform-origin:top;opacity:.35}50%{transform:scaleY(1);opacity:1}}
+
+@media (max-aspect-ratio:3/2){
+  .scene{width:100vw;height:auto}
+}
+@media (min-aspect-ratio:3/2){
+  .scene{height:100svh;width:auto}
+}
+@media (max-width:700px){
+  .scroll-space{height:470svh}
+  .stage{perspective:1300px}
+  .scene{width:100vw}
+  .glow{filter:blur(46px)}
+  .scroll-cue{bottom:max(12px,env(safe-area-inset-bottom))}
+}
+@media (prefers-reduced-motion:reduce){
+  .grain,.scroll-cue i{animation:none}
+  .page-light,.glass-light,.ambient{display:none}
+}
