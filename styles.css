@@ -275,3 +275,32 @@
   }
 
 }
+
+/* =========================================
+   MOBILE CALENDAR HEADING SPACING FIX
+========================================= */
+
+@media (max-width: 768px) {
+
+  .calendar-head {
+    margin-bottom: 45px !important;
+  }
+
+  .calendar-note {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+
+    width: 100% !important;
+    max-width: 260px !important;
+
+    margin: 0 0 45px auto !important;
+
+    text-align: right !important;
+  }
+
+  .calendar-title {
+    margin-top: 0 !important;
+    margin-bottom: 35px !important;
+  }
+}
