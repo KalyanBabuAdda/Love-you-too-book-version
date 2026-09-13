@@ -8,9 +8,85 @@ const glow=$('#cursorGlow'),scene=$('#heroScene');
 addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;glow.style.opacity='1';glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';if(scene){const r=scene.getBoundingClientRect(),nx=(e.clientX-r.left)/r.width-.5,ny=(e.clientY-r.top)/r.height-.5;scene.style.transform=`rotateX(${(-ny*2.2).toFixed(2)}deg) rotateY(${(nx*3.2).toFixed(2)}deg)`;$$('[data-depth]',scene).forEach(el=>{const d=+el.dataset.depth||1;el.style.marginLeft=`${nx*10*d}px`;el.style.marginTop=`${ny*8*d}px`;});}});
 addEventListener('pointerout',e=>{if(!e.relatedTarget){glow.style.opacity='0';if(scene)scene.style.transform='';}});
 
-// Relationship duration from 16 Nov 2023
-function relationshipDuration(){const start=new Date(2023,10,16,0,0,0);const now=new Date();let years=now.getFullYear()-start.getFullYear();let anchor=new Date(start);anchor.setFullYear(start.getFullYear()+years);if(anchor>now){years--;anchor.setFullYear(start.getFullYear()+years);}let months=0;while(months<11){const next=new Date(anchor);next.setMonth(next.getMonth()+1);if(next<=now){anchor=next;months++;}else break;}const days=Math.max(0,Math.floor((now-anchor)/86400000));$('#years').textContent=years;$('#months').textContent=months;$('#days').textContent=days;}
-relationshipDuration();setInterval(relationshipDuration,3600000);
+// =====================================================
+// LIVE RELATIONSHIP DURATION
+// Together since: 16 November 2023
+// =====================================================
+
+function relationshipDuration() {
+
+  const start = new Date(2023, 10, 16, 0, 0, 0);
+  const now = new Date();
+
+  // YEARS
+  let years = now.getFullYear() - start.getFullYear();
+
+  let anchor = new Date(start);
+  anchor.setFullYear(start.getFullYear() + years);
+
+  if (anchor > now) {
+    years--;
+
+    anchor = new Date(start);
+    anchor.setFullYear(start.getFullYear() + years);
+  }
+
+  // MONTHS
+  let months = 0;
+
+  while (months < 11) {
+
+    const next = new Date(anchor);
+    next.setMonth(next.getMonth() + 1);
+
+    if (next <= now) {
+      anchor = next;
+      months++;
+    } else {
+      break;
+    }
+  }
+
+  // REMAINING TIME
+  let remaining = now - anchor;
+
+  const days = Math.floor(
+    remaining / (1000 * 60 * 60 * 24)
+  );
+
+  remaining -= days * (1000 * 60 * 60 * 24);
+
+  const hours = Math.floor(
+    remaining / (1000 * 60 * 60)
+  );
+
+  remaining -= hours * (1000 * 60 * 60);
+
+  const minutes = Math.floor(
+    remaining / (1000 * 60)
+  );
+
+  remaining -= minutes * (1000 * 60);
+
+  const seconds = Math.floor(
+    remaining / 1000
+  );
+
+  // UPDATE SCREEN
+  $('#years').textContent = years;
+  $('#months').textContent = months;
+  $('#days').textContent = days;
+  $('#hours').textContent = hours;
+  $('#minutes').textContent = minutes;
+  $('#seconds').textContent = seconds;
+}
+
+
+// Run immediately
+relationshipDuration();
+
+// Update every second
+setInterval(relationshipDuration, 1000);
 
 // Reunion countdown: 19 Nov 2026, local time
 const reunion=new Date(2026,10,19,0,0,0);
