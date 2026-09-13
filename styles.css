@@ -245,3 +245,27 @@
     gap: 56px !important;
   }
 }
+
+/* =========================================
+   CENTER CALENDAR QUOTE ON MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .calendar-top-note {
+    position: relative !important;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 auto 72px !important;
+
+    text-align: center !important;
+
+    white-space: nowrap !important;
+
+    font-size: clamp(15px, 4.4vw, 20px) !important;
+    line-height: 1.2 !important;
+  }
+
+}
