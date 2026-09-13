@@ -304,3 +304,37 @@
     margin-bottom: 35px !important;
   }
 }
+/* =========================================
+   FIX CALENDAR NOTE + MONTH HEADING SPACING
+   MOBILE ONLY
+========================================= */
+
+@media (max-width: 768px) {
+
+  .calendar-panel {
+    padding-top: 150px !important;
+  }
+
+  .calendar-top-note {
+    position: absolute !important;
+    top: 34px !important;
+    right: 22px !important;
+
+    width: 230px !important;
+
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+
+    text-align: center !important;
+  }
+
+  .calendars {
+    margin-top: 35px !important;
+  }
+
+  .calendar h3 {
+    margin-top: 0 !important;
+    margin-bottom: 28px !important;
+  }
+}
+
