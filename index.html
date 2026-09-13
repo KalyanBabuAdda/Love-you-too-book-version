@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#100d0b" />
+  <meta name="description" content="A little page for Vasanthi — Sriram & Vasanthi memories." />
+  <title>To Vasanthi — Sriram & Vasanthi</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="film-grain" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#home" aria-label="Sriram and Vasanthi home">
+      <span>SRIRAM</span><span>&amp;</span><span>VASANTHI</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#home" class="active">HOME</a>
+      <a href="#journey">OUR STORY</a>
+      <a href="#memories">MEMORIES</a>
+      <a href="#countdown">COUNTDOWN</a>
+      <a href="#memories" class="nav-heart" aria-label="Memories">♥</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <section class="hero section" id="home" data-section="01">
+      <div class="hero-photo-bg" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="dust" aria-hidden="true"></div>
+
+      <div class="hero-scene tilt-scene" id="heroScene">
+        <div class="scene-frame scene-left" data-depth=".5">
+          <img src="./assets/photos/photo-2.jpg" alt="A memory of Sriram and Vasanthi" />
+          <span>My<br>Favourite<br>Person ♡</span>
+        </div>
+
+        <div class="scene-center" data-depth="1.1">
+          <p class="script-small">To</p>
+          <h1>Vasanthi</h1>
+          <div class="line-heart">♡</div>
+          <p class="hero-subtitle">A LITTLE PAGE<br>JUST FOR YOU</p>
+          <a class="scroll-cue" href="#journey"><i></i><span>SCROLL</span><b>↓</b></a>
+        </div>
+
+        <div class="scene-right" data-depth=".65">
+          <div class="flowers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="note">Same<br>people<br>Always<br>us ♡</div>
+          <div class="book-stack" aria-hidden="true">
+            <span></span><span class="named">Better<br>Together</span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-index" aria-hidden="true"><span class="dot active"></span><span>02</span><span>03</span><span>04</span></div>
+    </section>
+
+    <section class="journey section" id="journey" data-section="02">
+      <div class="paper-noise"></div>
+      <div class="corner-flower left" aria-hidden="true">✿</div>
+      <div class="leaf-shadow right" aria-hidden="true"></div>
+
+      <div class="journey-side quote-left reveal">
+        <p>A story,<br>built with small moments,<br>long conversations,<br>silly fights,<br>and a love that only grows.</p>
+      </div>
+
+      <div class="journey-center reveal">
+        <p class="eyebrow">OUR JOURNEY</p>
+        <p class="journey-label">WE'VE BEEN TOGETHER FOR</p>
+        <div class="duration" id="relationshipDuration" aria-live="polite">
+          <div><strong id="years">0</strong><span>Years</span></div>
+          <div><strong id="months">0</strong><span>Months</span></div>
+          <div><strong id="days">0</strong><span>Days</span></div>
+        </div>
+        <div class="tiny-heart">♡</div>
+        <p class="since">From 16 November 2023<br>to forever...</p>
+      </div>
+
+      <div class="journey-side quote-right reveal">
+        <p>Same<br>Hearts<br>Different<br>days<br><em>Always us</em><br>♡</p>
+      </div>
+    </section>
+
+    <section class="memories section" id="memories" data-section="03">
+      <div class="fabric" aria-hidden="true"></div>
+      <div class="memories-copy reveal">
+        <p class="eyebrow">OUR<br>MEMORIES</p>
+        <p>A FEW PAGES<br>FROM OUR<br>STORY</p>
+        <span></span>
+      </div>
+
+      <div class="memory-book-wrap reveal">
+        <div class="book-ambient"></div>
+        <iframe
+          src="./landing-pages/memories-book.html?nointro=1"
+          title="Sriram and Vasanthi interactive memories book"
+          class="memory-book-frame"
+          loading="eager"
+          allow="fullscreen"
+        ></iframe>
+      </div>
+
+      <div class="torn-note reveal">Different<br>Places<br>Same Love<br>♡</div>
+      <div class="petal p1" aria-hidden="true"></div>
+      <div class="petal p2" aria-hidden="true"></div>
+    </section>
+
+    <section class="distance section" id="countdown" data-section="04">
+      <div class="countdown-panel reveal">
+        <div class="night-photo" aria-hidden="true"></div>
+        <div class="panel-shade"></div>
+        <div class="countdown-content">
+          <p class="eyebrow">COUNTING<br>THE DAYS</p>
+          <span class="small-rule"></span>
+          <p class="until">Until we meet again <b>♥</b></p>
+          <div class="countdown-clock" id="countdownClock">
+            <div><strong id="cdDays">00</strong><span>Days</span></div>
+            <div><strong id="cdHours">00</strong><span>Hours</span></div>
+            <div><strong id="cdMinutes">00</strong><span>Minutes</span></div>
+            <div><strong id="cdSeconds">00</strong><span>Seconds</span></div>
+          </div>
+          <p class="distance-copy">A little distance for a bigger tomorrow.<br>Can't wait to see you again ♡</p>
+          <div class="desk-note">Good<br>Things<br>Take Time<br>♡</div>
+        </div>
+      </div>
+
+      <div class="calendar-panel reveal">
+        <div class="calendar-top-note">Every day apart<br>is one day closer<br>♡</div>
+        <div class="calendars" id="calendars"></div>
+        <div class="legend">
+          <span><i class="passed"></i>Day passed</span>
+          <span><i class="apart"></i>Long distance</span>
+          <span><i class="anniversary"></i>Our anniversary</span>
+          <span><i class="reunion"></i>Reunion day</span>
+        </div>
+        <div class="mountains" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+
+      <div class="closing-copy reveal">
+        <p>“DISTANCE CHANGES THE MAP,<br>NOT THE FEELING.”</p>
+        <span>♡</span>
+      </div>
+      <div class="signature reveal">With all my love,<br><strong>Sriram ♡</strong></div>
+    </section>
+
+    <section class="story section" id="story">
+      <div class="story-head reveal">
+        <p class="eyebrow">OUR STORY</p>
+        <h2>Different places, same hearts.</h2>
+      </div>
+      <div class="story-grid">
+        <article class="polaroid reveal" data-tilt="-4">
+          <img src="./assets/photos/photo-1.jpg" alt="Sriram and Vasanthi memory" />
+          <h3>Little Moments</h3><p>The days we never planned became the ones worth keeping.</p>
+        </article>
+        <article class="polaroid reveal" data-tilt="2">
+          <img src="./assets/photos/photo-3.jpg" alt="Sriram and Vasanthi together" />
+          <h3>Growing Together</h3><p>Different days, different places — still choosing each other.</p>
+        </article>
+        <article class="polaroid reveal" data-tilt="-2">
+          <img src="./assets/photos/photo-6.jpg" alt="A special memory" />
+          <h3>Still Us</h3><p>Through every phase, it's always you and me.</p>
+        </article>
+      </div>
+      <div class="story-note reveal">Some people<br>make the world<br>feel softer<br>just by being in it ♡</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><strong>SRIRAM &amp; VASANTHI</strong><p>A LITTLE PAGE.<br>JUST FOR YOU.</p></div>
+    <nav><a href="#home">HOME</a><a href="#story">OUR STORY</a><a href="#memories">MEMORIES</a><a href="#countdown">COUNTDOWN</a><span>♥</span></nav>
+    <p class="made">Made with love<br><em>Always us ♡</em></p>
+    <small>© 2026 Sriram &amp; Vasanthi · A SMALL WORLD / BIGGER US / ALWAYS</small>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
